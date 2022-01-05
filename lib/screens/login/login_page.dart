@@ -1,8 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:labcse25/constants/size.dart';
 import 'package:labcse25/screens/widgets/form_input_widget.dart';
+import 'package:firebase_auth/firebase_auth.dart' show FirebaseAuth;
+
 
 class LoginPage extends StatelessWidget {
+  void Login(email, password) async {
+    final firebaseUser = await FirebaseAuth.instance
+        .signInWithEmailAndPassword(email: email, password: password);    
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -92,71 +99,75 @@ class LoginPage extends StatelessWidget {
               child: Row(
                 children: [
                   Spacer(),
-                  Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text(
-                        "Login",
-                        style: TextStyle(
-                          fontSize: 35 * w,
-                          fontWeight: FontWeight.bold,
-                          color: Colors.blueAccent,
+                  SingleChildScrollView(
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        SizedBox(height: 40 * w),
+                        Text(
+                          "Login",
+                          style: TextStyle(
+                            fontSize: 35 * w,
+                            fontWeight: FontWeight.bold,
+                            color: Colors.blueAccent,
+                          ),
                         ),
-                      ),
-                      SizedBox(
-                        height: 15 * w,
-                      ),
-                      FromInputWidget(),
-                      SizedBox(
-                        height: 15 * w,
-                      ),
-                      FromInputWidget(),
-                      SizedBox(
-                        height: 20 * w,
-                      ),
-                      Row(
-                        children: [
-                          Container(
-                            height: w * 45,
-                            width: w * 120,
-                            decoration: BoxDecoration(
-                              color: Color(0xff6069E9),
-                              borderRadius: BorderRadius.circular(30 * w),
-                            ),
-                            child: Center(
-                              child: Text(
-                                "Login",
-                                style: TextStyle(
-                                  fontSize: 15 * w,
-                                  // fontWeight: FontWeight.bold,
-                                  color: Colors.white,
+                        SizedBox(
+                          height: 15 * w,
+                        ),
+                        FromInputWidget(),
+                        SizedBox(
+                          height: 15 * w,
+                        ),
+                        FromInputWidget(),
+                        SizedBox(
+                          height: 20 * w,
+                        ),
+                        Row(
+                          children: [
+                            Container(
+                              height: w * 45,
+                              width: w * 120,
+                              decoration: BoxDecoration(
+                                color: Color(0xff6069E9),
+                                borderRadius: BorderRadius.circular(30 * w),
+                              ),
+                              child: Center(
+                                child: Text(
+                                  "Login",
+                                  style: TextStyle(
+                                    fontSize: 15 * w,
+                                    // fontWeight: FontWeight.bold,
+                                    color: Colors.white,
+                                  ),
                                 ),
                               ),
                             ),
-                          ),
-                          SizedBox(
-                            width: 20 * w,
-                          ),
-                          GestureDetector(
-                            onTap: () {
-                              Navigator.pushNamed(context, '/signup');
-                            },
-                            child: Text(
-                              "Apply for connection",
-                              style: TextStyle(
-                                fontSize: 15 * w,
-                                // fontWeight: FontWreight.bold,
-                                color: Colors.blueAccent,
+                            SizedBox(
+                              width: 20 * w,
+                            ),
+                            GestureDetector(
+                              onTap: () {
+                                Navigator.pushNamed(context, '/signup');
+                              },
+                              child: Text(
+                                "Apply for connection",
+                                style: TextStyle(
+                                  fontSize: 15 * w,
+                                  // fontWeight: FontWreight.bold,
+                                  color: Colors.blueAccent,
+                                ),
                               ),
                             ),
-                          ),
-                        ],
-                      ),
-                      SizedBox(
-                        width: 20 * w,
-                      ),
-                    ],
+                          ],
+                        ),
+                        SizedBox(
+                          width: 20 * w,
+                        ),
+                        SizedBox(height: 40 * w),
+                      ],
+                    ),
                   ),
                   Spacer(),
                 ],

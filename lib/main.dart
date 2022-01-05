@@ -3,6 +3,8 @@ import 'package:labcse25/constants/size.dart';
 import 'package:labcse25/screens/login/login_page.dart';
 import 'package:labcse25/screens/signup/signup.dart';
 
+import 'screens/consumer/view_bill.dart';
+
 void main() {
   runApp(LabWebsite());
 }
@@ -11,13 +13,14 @@ class LabWebsite extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      initialRoute: '/',
+      initialRoute: '/view_bill',
       routes: {
         // When navigating to the "/" route, build the FirstScreen widget.
         '/': (context) => StartPoint(),
         // When navigating to the "/second" route, build the SecondScreen widget.
         '/login': (context) => LoginPage(),
         '/signup': (context) => SignUpPage(),
+        '/view_bill': (context) => ViewBill(),
       },
       debugShowCheckedModeBanner: false,
       // home: StartPoint(),

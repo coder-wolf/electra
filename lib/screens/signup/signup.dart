@@ -92,84 +92,88 @@ class SignUpPage extends StatelessWidget {
               child: Row(
                 children: [
                   Spacer(),
-                  Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text(
-                        "Apply for new connection",
-                        style: TextStyle(
-                          fontSize: 35 * w,
-                          fontWeight: FontWeight.bold,
-                          color: Color(0xff6069E9),
+                  SingleChildScrollView(
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        SizedBox(height: 40 * w),
+                        Text(
+                          "Apply for new connection",
+                          style: TextStyle(
+                            fontSize: 35 * w,
+                            fontWeight: FontWeight.bold,
+                            color: Color(0xff6069E9),
+                          ),
                         ),
-                      ),
-                      SizedBox(
-                        height: 20 * w,
-                      ),
-                      FromInputWidget(),
-                      SizedBox(
-                        height: 15 * w,
-                      ),
-                      FromInputWidget(),
-                      SizedBox(
-                        height: 15 * w,
-                      ),
-                      FromInputWidget(),
-                      SizedBox(
-                        height: 15 * w,
-                      ),
-                      FromInputWidget(),
-                      SizedBox(
-                        height: 15 * w,
-                      ),
-                      FromInputWidget(),
-                      SizedBox(
-                        height: 15 * w,
-                      ),
-                      FromInputWidget(),
-                      SizedBox(
-                        height: 20 * w,
-                      ),
-                      Row(
-                        children: [
-                          Container(
-                            height: w * 45,
-                            width: w * 120,
-                            decoration: BoxDecoration(
-                              color: Color(0xff6069E9),
-                              borderRadius: BorderRadius.circular(30 * w),
-                            ),
-                            child: Center(
-                              child: Text(
-                                "Apply",
-                                style: TextStyle(
-                                  fontSize: 15 * w,
-                                  // fontWeight: FontWeight.bold,
-                                  color: Colors.white,
+                        SizedBox(
+                          height: 20 * w,
+                        ),
+                        FromInputWidget(),
+                        SizedBox(
+                          height: 15 * w,
+                        ),
+                        FromInputWidget(),
+                        SizedBox(
+                          height: 15 * w,
+                        ),
+                        FromInputWidget(),
+                        SizedBox(
+                          height: 15 * w,
+                        ),
+                        FromInputWidget(),
+                        SizedBox(
+                          height: 15 * w,
+                        ),
+                        FromInputWidget(),
+                        SizedBox(
+                          height: 15 * w,
+                        ),
+                        FromInputWidget(),
+                        SizedBox(
+                          height: 20 * w,
+                        ),
+                        Row(
+                          children: [
+                            Container(
+                              height: w * 45,
+                              width: w * 120,
+                              decoration: BoxDecoration(
+                                color: Color(0xff6069E9),
+                                borderRadius: BorderRadius.circular(30 * w),
+                              ),
+                              child: Center(
+                                child: Text(
+                                  "Apply",
+                                  style: TextStyle(
+                                    fontSize: 15 * w,
+                                    // fontWeight: FontWeight.bold,
+                                    color: Colors.white,
+                                  ),
                                 ),
                               ),
                             ),
-                          ),
-                          SizedBox(
-                            width: 95 * w,
-                          ),
-                          GestureDetector(
-                            onTap: () {
-                              Navigator.pushNamed(context, '/login');
-                            },
-                            child: Text(
-                              "Login",
-                              style: TextStyle(
-                                fontSize: 15 * w,
-                                // fontWeight: FontWreight.bold,
-                                color: Colors.blueAccent,
+                            SizedBox(
+                              width: 95 * w,
+                            ),
+                            GestureDetector(
+                              onTap: () {
+                                Navigator.pushNamed(context, '/login');
+                              },
+                              child: Text(
+                                "Login",
+                                style: TextStyle(
+                                  fontSize: 15 * w,
+                                  // fontWeight: FontWreight.bold,
+                                  color: Colors.blueAccent,
+                                ),
                               ),
                             ),
-                          ),
-                        ],
-                      ),
-                    ],
+                          ],
+                        ),
+                        SizedBox(height: 40 * w),
+                      ],
+                    ),
                   ),
                   Spacer(),
                 ],
