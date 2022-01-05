@@ -21,7 +21,7 @@ class ViewBill extends StatelessWidget {
                     child: Column(
                       children: [
                         Text(
-                          "Electro",
+                          "Electra",
                           style: TextStyle(
                             fontSize: w * 30,
                             fontWeight: FontWeight.w900,
@@ -138,6 +138,9 @@ class ViewBill extends StatelessWidget {
                                         color: Colors.white,
                                         borderRadius:
                                             BorderRadius.circular(15 * w),
+                                      ),
+                                      child: Center(
+                                        child: Image(image: AssetImage("images/qr.png"),)
                                       ),
                                     ),
                                   ],
