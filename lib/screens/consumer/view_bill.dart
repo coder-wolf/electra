@@ -8,6 +8,8 @@ class ViewBill extends StatelessWidget {
       body: Container(
         child: Row(
           children: [
+            //// TODO: make the webpage responsive for mobile
+            // DOC: First flex item is the sidebar..
             Flexible(
               flex: 2,
               child: Container(
@@ -19,13 +21,44 @@ class ViewBill extends StatelessWidget {
                     child: Column(
                       children: [
                         Text(
-                          "Electra",
+                          "Electro",
                           style: TextStyle(
                             fontSize: w * 30,
                             fontWeight: FontWeight.w900,
                           ),
                         ),
-                        Text(""),
+                        Text(
+                          "Pay your bills online now",
+                          style: TextStyle(
+                            color: Colors.grey[600],
+                          ),
+                        ),
+                        SizedBox(height: 53 * w),
+                        SideBarItem(
+                          icon: Icons.auto_awesome_mosaic_outlined,
+                          title: "Overview",
+                          isSelected: true,
+                        ),
+                        SideBarItem(
+                          icon: Icons.article_outlined,
+                          title: "Report",
+                        ),
+                        SideBarItem(
+                          icon: Icons.calendar_today_outlined,
+                          title: "Calendar",
+                        ),
+                        SideBarItem(
+                          icon: Icons.folder_outlined,
+                          title: "Directory",
+                        ),
+                        SideBarItem(
+                          icon: Icons.auto_awesome_mosaic_outlined,
+                          title: "Overview",
+                        ),
+                        SideBarItem(
+                          icon: Icons.settings,
+                          title: "Settings",
+                        ),
                       ],
                     ),
                   ),
@@ -37,6 +70,7 @@ class ViewBill extends StatelessWidget {
               child: Container(
                 color: Color(0xffF3F3F7),
                 height: double.infinity,
+                width: double.infinity,
                 child: Column(
                   children: [
                     Container(
@@ -62,6 +96,7 @@ class ViewBill extends StatelessWidget {
                                     SizedBox(
                                       width: 19 * w,
                                     ),
+                                    // DOC : Water and Gas info here
                                     Column(
                                       children: [
                                         SmallerWidgets(),
@@ -77,6 +112,7 @@ class ViewBill extends StatelessWidget {
                                     SizedBox(
                                       width: 19 * w,
                                     ),
+                                    // DOC: Home and water info here
                                     Column(
                                       children: [
                                         SmallerWidgets(
@@ -155,9 +191,6 @@ class ViewBill extends StatelessWidget {
                                 BillWidget(
                                   index: 5,
                                 ),
-                                // BillWidget(
-                                //   index: 6,
-                                // ),
                               ],
                             ),
                           ),
@@ -171,6 +204,41 @@ class ViewBill extends StatelessWidget {
           ],
         ),
       ),
+    );
+  }
+}
+
+class SideBarItem extends StatelessWidget {
+  SideBarItem({
+    this.icon,
+    this.title,
+    this.isSelected = false,
+    Key? key,
+  }) : super(key: key);
+  var icon;
+  var title;
+  var isSelected;
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: EdgeInsets.only(top: 12 * w, bottom: 12 * w),
+      child: Row(children: [
+        Icon(
+          icon,
+          color: isSelected ? Color(0xff4B58DB) : Colors.grey,
+        ),
+        SizedBox(
+          width: 10 * w,
+        ),
+        Text(
+          title,
+          style: TextStyle(
+            color: isSelected ? Color(0xff4B58DB) : Colors.grey,
+            fontSize: 18 * w,
+          ),
+        ),
+      ]),
     );
   }
 }
