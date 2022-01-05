@@ -11,8 +11,16 @@ class LabWebsite extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      initialRoute: '/',
+      routes: {
+        // When navigating to the "/" route, build the FirstScreen widget.
+        '/': (context) => StartPoint(),
+        // When navigating to the "/second" route, build the SecondScreen widget.
+        '/login': (context) => LoginPage(),
+        '/signup': (context) => SignUpPage(),
+      },
       debugShowCheckedModeBanner: false,
-      home: StartPoint(),
+      // home: StartPoint(),
     );
   }
 }
@@ -22,7 +30,7 @@ class StartPoint extends StatelessWidget {
   Widget build(BuildContext context) {
     w = MediaQuery.of(context).size.width * (1 / 1000);
     return Container(
-      child: SignUpPage(),
+      child: LoginPage(),
     );
   }
 }

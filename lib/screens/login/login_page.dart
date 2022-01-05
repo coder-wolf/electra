@@ -115,23 +115,46 @@ class LoginPage extends StatelessWidget {
                       SizedBox(
                         height: 20 * w,
                       ),
-                      Container(
-                        height: w * 45,
-                        width: w * 120,
-                        decoration: BoxDecoration(
-                          color: Color(0xff6069E9),
-                          borderRadius: BorderRadius.circular(30 * w),
-                        ),
-                        child: Center(
-                          child: Text(
-                            "Login",
-                            style: TextStyle(
-                              fontSize: 15 * w,
-                              // fontWeight: FontWeight.bold,
-                              color: Colors.white,
+                      Row(
+                        children: [
+                          Container(
+                            height: w * 45,
+                            width: w * 120,
+                            decoration: BoxDecoration(
+                              color: Color(0xff6069E9),
+                              borderRadius: BorderRadius.circular(30 * w),
+                            ),
+                            child: Center(
+                              child: Text(
+                                "Login",
+                                style: TextStyle(
+                                  fontSize: 15 * w,
+                                  // fontWeight: FontWeight.bold,
+                                  color: Colors.white,
+                                ),
+                              ),
                             ),
                           ),
-                        ),
+                          SizedBox(
+                            width: 20 * w,
+                          ),
+                          GestureDetector(
+                            onTap: () {
+                              Navigator.pushNamed(context, '/signup');
+                            },
+                            child: Text(
+                              "Apply for connection",
+                              style: TextStyle(
+                                fontSize: 15 * w,
+                                // fontWeight: FontWreight.bold,
+                                color: Colors.blueAccent,
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
+                      SizedBox(
+                        width: 20 * w,
                       ),
                     ],
                   ),
