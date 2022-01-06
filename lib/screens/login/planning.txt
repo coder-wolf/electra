@@ -1,0 +1,11 @@
+Electra -- electricity bills management website
+
+[x] login page
+[x] signup page
+[] user profile page
+[x] bills page
+    [] transaction -- success page
+    [] transaction -- failure page
+[] admin page
+[] manager page
+[] biller page

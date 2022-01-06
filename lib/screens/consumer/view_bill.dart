@@ -1,172 +1,193 @@
 import 'package:flutter/material.dart';
 import 'package:labcse25/constants/size.dart';
 
-class ViewBill extends StatelessWidget {
+class ViewBillPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: Container(
+        color: Color(0xffF3F3F7),
         child: Row(
           children: [
-            //// TODO make the webpage responsive for mobile
-            // DOC: First flex item is the sidebar..
-            Flexible(
-              flex: 2,
-              child: Container(
-                color: Colors.white,
-                height: double.infinity,
-                child: Padding(
-                  padding: EdgeInsets.all(w * 35),
-                  child: SingleChildScrollView(
-                    child: SideBarItems(),
-                  ),
+            // TODO make the webpage responsive for different screen sizes
+            Container(
+              color: Colors.white,
+              height: double.infinity,
+              width: 222 * w,
+              child: Padding(
+                padding: EdgeInsets.all(w * 35),
+                child: SingleChildScrollView(
+                  child: SideBarItems(),
                 ),
               ),
             ),
-            Flexible(
-              flex: 7,
-              child: Container(
-                color: Color(0xffF3F3F7),
-                // height: double.infinity,
-                // width: double.infinity,
-                child: Column(
+            Expanded(
+              child: SingleChildScrollView(
+                scrollDirection: Axis.horizontal,
+                child: Row(
                   children: [
+                    Container(),
                     Container(
-                      // color: Colors.red,
-                      height: 200 * w,
-                      child: Padding(
-                        padding: EdgeInsets.only(
-                          left: 22 * w,
-                          right: 22 * w,
-                          top: 25 * w,
-                        ),
-                        child: Column(
-                          children: [
-                            SearchBarAndStuff(),
-                            Padding(
+                      color: Color(0xffF3F3F7),
+                      // height: double.infinity,
+                      width: w * 778,
+                      child: Column(
+                        children: [
+                          Container(
+                            // color: Colors.red,
+                            height: 200 * w,
+                            child: Padding(
                               padding: EdgeInsets.only(
-                                top: 24 * w,
+                                top: 25 * w,
                               ),
-                              child: Container(
-                                child: Row(
-                                  children: [
-                                    LargerWidget(),
-                                    SizedBox(
-                                      width: 19 * w,
+                              child: Column(
+                                children: [
+                                  SearchBarAndStuff(),
+                                  Padding(
+                                    padding: EdgeInsets.only(
+                                      top: 24 * w,
                                     ),
-                                    // DOC : Water and Gas info here
-                                    Column(
-                                      children: [
-                                        SmallerWidgets(),
-                                        SizedBox(
-                                          height: 15 * w,
+                                    child: Container(
+                                      child: SingleChildScrollView(
+                                        scrollDirection: Axis.horizontal,
+                                        child: Row(
+                                          children: [
+                                            SizedBox(
+                                              width: 22 * w,
+                                            ),
+                                            LargerWidget(),
+                                            SizedBox(
+                                              width: 19 * w,
+                                            ),
+                                            // DOC : Water and Gas info here
+                                            Column(
+                                              children: [
+                                                SmallerWidgets(),
+                                                SizedBox(
+                                                  height: 15 * w,
+                                                ),
+                                                SmallerWidgets(
+                                                  icon: "🔥",
+                                                  category: "Gas:",
+                                                ),
+                                              ],
+                                            ),
+                                            SizedBox(
+                                              width: 19 * w,
+                                            ),
+                                            // DOC: Home and water info here
+                                            Column(
+                                              children: [
+                                                SmallerWidgets(
+                                                  icon: "🏠",
+                                                  category: "Home:",
+                                                ),
+                                                SizedBox(
+                                                  height: 15 * w,
+                                                ),
+                                                SmallerWidgets(
+                                                  icon: "🗑",
+                                                  category: "Cleaning:",
+                                                ),
+                                              ],
+                                            ),
+                                            SizedBox(
+                                              width: 18 * w,
+                                            ),
+                                            Container(
+                                              height: 102 * w,
+                                              width: 102 * w,
+                                              decoration: BoxDecoration(
+                                                color: Colors.white,
+                                                borderRadius:
+                                                    BorderRadius.circular(
+                                                        14 * w),
+                                                boxShadow: [
+                                                  BoxShadow(
+                                                    color: Colors.grey
+                                                        .withOpacity(0.1),
+                                                    spreadRadius: 5 * w,
+                                                    blurRadius: 5 * w,
+                                                  ),
+                                                ],
+                                              ),
+                                              child: Center(
+                                                  child: Padding(
+                                                padding: EdgeInsets.all(w * 6),
+                                                child: Image(
+                                                  image: AssetImage(
+                                                      "images/qr.png"),
+                                                ),
+                                              )),
+                                            ),
+                                            SizedBox(
+                                              width: 22 * w,
+                                            ),
+                                          ],
                                         ),
-                                        SmallerWidgets(
-                                          icon: "🔥",
-                                          category: "Gas:",
+                                      ),
+                                    ),
+                                  ),
+                                  // Spacer(),
+                                ],
+                              ),
+                            ),
+                          ),
+                          Expanded(
+                            child: Container(
+                              child: Padding(
+                                padding: EdgeInsets.only(
+                                  left: 22 * w,
+                                  right: 22 * w,
+                                  top: 25 * w,
+                                  bottom: 22 * w,
+                                ),
+                                child: ClipRRect(
+                                  borderRadius: BorderRadius.circular(20 * w),
+                                  child: Container(
+                                    decoration: BoxDecoration(
+                                      borderRadius:
+                                          BorderRadius.circular(20 * w),
+                                      color: Colors.white,
+                                      boxShadow: [
+                                        BoxShadow(
+                                          color: Colors.grey.withOpacity(0.1),
+                                          spreadRadius: 5 * w,
+                                          blurRadius: 5 * w,
                                         ),
                                       ],
                                     ),
-                                    SizedBox(
-                                      width: 19 * w,
-                                    ),
-                                    // DOC: Home and water info here
-                                    Column(
-                                      children: [
-                                        SmallerWidgets(
-                                          icon: "🏠",
-                                          category: "Home:",
-                                        ),
-                                        SizedBox(
-                                          height: 15 * w,
-                                        ),
-                                        SmallerWidgets(
-                                          icon: "🗑",
-                                          category: "Cleaning:",
-                                        ),
-                                      ],
-                                    ),
-                                    SizedBox(
-                                      width: 18 * w,
-                                    ),
-                                    Container(
-                                      height: 102 * w,
-                                      width: 102 * w,
-                                      decoration: BoxDecoration(
-                                        color: Colors.white,
-                                        borderRadius:
-                                            BorderRadius.circular(14 * w),
-                                        boxShadow: [
-                                          BoxShadow(
-                                            color: Colors.grey.withOpacity(0.1),
-                                            spreadRadius: 5 * w,
-                                            blurRadius: 5 * w,
+                                    child: SingleChildScrollView(
+                                      child: Column(
+                                        children: [
+                                          TitleBar(),
+                                          BillWidget(
+                                            index: 0,
+                                          ),
+                                          BillWidget(
+                                            index: 1,
+                                          ),
+                                          BillWidget(
+                                            index: 2,
+                                          ),
+                                          BillWidget(
+                                            index: 3,
+                                          ),
+                                          BillWidget(
+                                            index: 4,
+                                          ),
+                                          BillWidget(
+                                            index: 5,
                                           ),
                                         ],
                                       ),
-                                      child: Center(
-                                          child: Padding(
-                                        padding: EdgeInsets.all(w * 6),
-                                        child: Image(
-                                          image: AssetImage("images/qr.png"),
-                                        ),
-                                      )),
                                     ),
-                                  ],
+                                  ),
                                 ),
                               ),
                             ),
-                            // Spacer(),
-                          ],
-                        ),
-                      ),
-                    ),
-                    Expanded(
-                      child: Container(
-                        child: Padding(
-                          padding: EdgeInsets.only(
-                            left: 22 * w,
-                            right: 22 * w,
-                            top: 25 * w,
-                            bottom: 22 * w,
                           ),
-                          child: Container(
-                            decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(20 * w),
-                              color: Colors.white,
-                              boxShadow: [
-                                BoxShadow(
-                                  color: Colors.grey.withOpacity(0.1),
-                                  spreadRadius: 5 * w,
-                                  blurRadius: 5 * w,
-                                ),
-                              ],
-                            ),
-                            child: Column(
-                              children: [
-                                TitleBar(),
-                                BillWidget(
-                                  index: 0,
-                                ),
-                                BillWidget(
-                                  index: 1,
-                                ),
-                                BillWidget(
-                                  index: 2,
-                                ),
-                                BillWidget(
-                                  index: 3,
-                                ),
-                                BillWidget(
-                                  index: 4,
-                                ),
-                                BillWidget(
-                                  index: 5,
-                                ),
-                              ],
-                            ),
-                          ),
-                        ),
+                        ],
                       ),
                     ),
                   ],
@@ -440,71 +461,79 @@ class SmallerWidgets extends StatelessWidget {
 }
 
 class SearchBarAndStuff extends StatelessWidget {
-  const SearchBarAndStuff({
+  SearchBarAndStuff({
     Key? key,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return Row(children: [
-      Container(
-        width: 428 * w,
-        height: 32 * w,
-        decoration: BoxDecoration(
-          color: Colors.white,
-          borderRadius: BorderRadius.circular(9 * w),
+    return Row(
+      children: [
+        SizedBox(
+          width: 22 * w,
         ),
-        child: Center(
-          child: Row(
-            crossAxisAlignment: CrossAxisAlignment.center,
-            mainAxisAlignment: MainAxisAlignment.start,
-            children: [
-              Padding(
-                padding: EdgeInsets.only(left: 12 * w),
-                child: Text(
-                  "Search",
-                  style: TextStyle(
-                    color: Colors.grey,
-                    fontSize: 11 * w,
+        Container(
+          width: 428 * w,
+          height: 32 * w,
+          decoration: BoxDecoration(
+            color: Colors.white,
+            borderRadius: BorderRadius.circular(9 * w),
+          ),
+          child: Center(
+            child: Row(
+              crossAxisAlignment: CrossAxisAlignment.center,
+              mainAxisAlignment: MainAxisAlignment.start,
+              children: [
+                Padding(
+                  padding: EdgeInsets.only(left: 12 * w),
+                  child: Text(
+                    "Search",
+                    style: TextStyle(
+                      color: Colors.grey,
+                      fontSize: 11 * w,
+                    ),
                   ),
+                  // child: TextField(
+                  //   decoration: InputDecoration(
+                  //     border: OutlineInputBorder(),
+                  //     hintText: 'Enter a search term',
+                  //   ),
+                  // ),
                 ),
-                // child: TextField(
-                //   decoration: InputDecoration(
-                //     border: OutlineInputBorder(),
-                //     hintText: 'Enter a search term',
-                //   ),
-                // ),
-              ),
-              // Spacer(),
-            ],
+                // Spacer(),
+              ],
+            ),
           ),
         ),
-      ),
-      Spacer(),
-      Text(
-        "Message",
-        style: TextStyle(
-          color: Colors.grey,
-          fontSize: 13.5 * w,
+        Spacer(),
+        Text(
+          "Message",
+          style: TextStyle(
+            color: Colors.grey,
+            fontSize: 13.5 * w,
+          ),
         ),
-      ),
-      SizedBox(
-        width: 18 * w,
-      ),
-      Text(
-        "Notification",
-        style: TextStyle(
-          color: Colors.grey,
-          fontSize: 13.5 * w,
+        SizedBox(
+          width: 18 * w,
         ),
-      ),
-      SizedBox(
-        width: 18 * w,
-      ),
-      CircleAvatar(
-        radius: 20 * w,
-      ),
-    ]);
+        Text(
+          "Notification",
+          style: TextStyle(
+            color: Colors.grey,
+            fontSize: 13.5 * w,
+          ),
+        ),
+        SizedBox(
+          width: 18 * w,
+        ),
+        CircleAvatar(
+          radius: 20 * w,
+        ),
+        SizedBox(
+          width: 22 * w,
+        ),
+      ],
+    );
   }
 }
 

@@ -13,14 +13,14 @@ class LabWebsite extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      initialRoute: '/view_bill',
+      initialRoute: '/login/view_bill',
       routes: {
         // When navigating to the "/" route, build the FirstScreen widget.
         '/': (context) => StartPoint(),
         // When navigating to the "/second" route, build the SecondScreen widget.
         '/login': (context) => LoginPage(),
         '/signup': (context) => SignUpPage(),
-        '/login/view_bill': (context) => ViewBill(),
+        '/login/view_bill': (context) => ViewBillPage(),
       },
       debugShowCheckedModeBanner: false,
       // home: StartPoint(),
