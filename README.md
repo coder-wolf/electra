@@ -9,7 +9,15 @@
 6. then run this command `flutter run -d chrome --web-renderer html`
 7. It should open a new chrome window with the website
 
+Screenshots:
+Login :
+<img src='screenshots/ss2.png'>
 
+SignUp:
+<img src='screenshots/ss3.png'>
+
+Bills Page:
+<img src='screenshots/ss1.png'>
 
 
 Login page design credit : [Suzanne Lettink](https://dribbble.com/shots/5635844-Sign-in-up-screen-001)
