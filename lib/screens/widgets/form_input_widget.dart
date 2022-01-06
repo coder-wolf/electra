@@ -2,13 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:labcse25/constants/size.dart';
 
 class FromInputWidget extends StatelessWidget {
-  var title;
   var hint;
+  var obscure;
   // TODO : Add TextInputType
   // write constructor
   FromInputWidget({
-    this.title,
     this.hint,
+    this.obscure = false,
   });
 
   @override
@@ -29,6 +29,17 @@ class FromInputWidget extends StatelessWidget {
         //     blurRadius: w * 1,
         //   ),
         // ],
+      ),
+      child: Padding(
+        padding: EdgeInsets.only(left: 12 * w, right: 12 * w),
+        child: TextField(
+          obscureText: obscure,
+          decoration: InputDecoration(
+            border: InputBorder.none,
+            // labelText: 'Email',
+            hintText: hint,
+          ),
+        ),
       ),
     );
   }

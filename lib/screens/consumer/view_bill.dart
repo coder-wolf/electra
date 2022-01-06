@@ -8,7 +8,7 @@ class ViewBill extends StatelessWidget {
       body: Container(
         child: Row(
           children: [
-            //// TODO: make the webpage responsive for mobile
+            //// TODO make the webpage responsive for mobile
             // DOC: First flex item is the sidebar..
             Flexible(
               flex: 2,
@@ -18,49 +18,7 @@ class ViewBill extends StatelessWidget {
                 child: Padding(
                   padding: EdgeInsets.all(w * 35),
                   child: SingleChildScrollView(
-                    child: Column(
-                      children: [
-                        Text(
-                          "Electra",
-                          style: TextStyle(
-                            fontSize: w * 30,
-                            fontWeight: FontWeight.w900,
-                          ),
-                        ),
-                        Text(
-                          "Pay your bills online now",
-                          style: TextStyle(
-                            color: Colors.grey[600],
-                          ),
-                        ),
-                        SizedBox(height: 53 * w),
-                        SideBarItem(
-                          icon: Icons.auto_awesome_mosaic_outlined,
-                          title: "Overview",
-                          isSelected: true,
-                        ),
-                        SideBarItem(
-                          icon: Icons.article_outlined,
-                          title: "Report",
-                        ),
-                        SideBarItem(
-                          icon: Icons.calendar_today_outlined,
-                          title: "Calendar",
-                        ),
-                        SideBarItem(
-                          icon: Icons.folder_outlined,
-                          title: "Directory",
-                        ),
-                        SideBarItem(
-                          icon: Icons.auto_awesome_mosaic_outlined,
-                          title: "Overview",
-                        ),
-                        SideBarItem(
-                          icon: Icons.settings,
-                          title: "Settings",
-                        ),
-                      ],
-                    ),
+                    child: SideBarItems(),
                   ),
                 ),
               ),
@@ -69,8 +27,8 @@ class ViewBill extends StatelessWidget {
               flex: 7,
               child: Container(
                 color: Color(0xffF3F3F7),
-                height: double.infinity,
-                width: double.infinity,
+                // height: double.infinity,
+                // width: double.infinity,
                 child: Column(
                   children: [
                     Container(
@@ -137,11 +95,22 @@ class ViewBill extends StatelessWidget {
                                       decoration: BoxDecoration(
                                         color: Colors.white,
                                         borderRadius:
-                                            BorderRadius.circular(15 * w),
+                                            BorderRadius.circular(14 * w),
+                                        boxShadow: [
+                                          BoxShadow(
+                                            color: Colors.grey.withOpacity(0.1),
+                                            spreadRadius: 5 * w,
+                                            blurRadius: 5 * w,
+                                          ),
+                                        ],
                                       ),
                                       child: Center(
-                                        child: Image(image: AssetImage("images/qr.png"),)
-                                      ),
+                                          child: Padding(
+                                        padding: EdgeInsets.all(w * 6),
+                                        child: Image(
+                                          image: AssetImage("images/qr.png"),
+                                        ),
+                                      )),
                                     ),
                                   ],
                                 ),
@@ -207,6 +176,59 @@ class ViewBill extends StatelessWidget {
           ],
         ),
       ),
+    );
+  }
+}
+
+class SideBarItems extends StatelessWidget {
+  const SideBarItems({
+    Key? key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      children: [
+        Text(
+          "Electra",
+          style: TextStyle(
+            fontSize: w * 30,
+            fontWeight: FontWeight.w900,
+          ),
+        ),
+        Text(
+          "Pay your bills online now",
+          style: TextStyle(
+            color: Colors.grey[600],
+          ),
+        ),
+        SizedBox(height: 53 * w),
+        SideBarItem(
+          icon: Icons.auto_awesome_mosaic_outlined,
+          title: "Overview",
+          isSelected: true,
+        ),
+        SideBarItem(
+          icon: Icons.article_outlined,
+          title: "Report",
+        ),
+        SideBarItem(
+          icon: Icons.calendar_today_outlined,
+          title: "Calendar",
+        ),
+        SideBarItem(
+          icon: Icons.folder_outlined,
+          title: "Directory",
+        ),
+        SideBarItem(
+          icon: Icons.auto_awesome_mosaic_outlined,
+          title: "Overview",
+        ),
+        SideBarItem(
+          icon: Icons.settings,
+          title: "Settings",
+        ),
+      ],
     );
   }
 }
@@ -435,6 +457,7 @@ class SearchBarAndStuff extends StatelessWidget {
         child: Center(
           child: Row(
             crossAxisAlignment: CrossAxisAlignment.center,
+            mainAxisAlignment: MainAxisAlignment.start,
             children: [
               Padding(
                 padding: EdgeInsets.only(left: 12 * w),
@@ -445,8 +468,14 @@ class SearchBarAndStuff extends StatelessWidget {
                     fontSize: 11 * w,
                   ),
                 ),
+                // child: TextField(
+                //   decoration: InputDecoration(
+                //     border: OutlineInputBorder(),
+                //     hintText: 'Enter a search term',
+                //   ),
+                // ),
               ),
-              Spacer(),
+              // Spacer(),
             ],
           ),
         ),

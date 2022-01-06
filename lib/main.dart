@@ -20,7 +20,7 @@ class LabWebsite extends StatelessWidget {
         // When navigating to the "/second" route, build the SecondScreen widget.
         '/login': (context) => LoginPage(),
         '/signup': (context) => SignUpPage(),
-        '/view_bill': (context) => ViewBill(),
+        '/login/view_bill': (context) => ViewBill(),
       },
       debugShowCheckedModeBanner: false,
       // home: StartPoint(),

@@ -109,27 +109,27 @@ class SignUpPage extends StatelessWidget {
                         SizedBox(
                           height: 20 * w,
                         ),
-                        FromInputWidget(),
+                        FromInputWidget(hint: "Full Name",),
                         SizedBox(
                           height: 15 * w,
                         ),
-                        FromInputWidget(),
+                        FromInputWidget(hint: "Email",),
                         SizedBox(
                           height: 15 * w,
                         ),
-                        FromInputWidget(),
+                        FromInputWidget(hint: "Phone Number",),
                         SizedBox(
                           height: 15 * w,
                         ),
-                        FromInputWidget(),
+                        FromInputWidget(hint: "Address",),
                         SizedBox(
                           height: 15 * w,
                         ),
-                        FromInputWidget(),
+                        FromInputWidget(hint: "Password", obscure: true,),
                         SizedBox(
                           height: 15 * w,
                         ),
-                        FromInputWidget(),
+                        FromInputWidget(hint: "Confirm Password", obscure: true,),
                         SizedBox(
                           height: 20 * w,
                         ),

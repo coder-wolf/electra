@@ -3,11 +3,10 @@ import 'package:labcse25/constants/size.dart';
 import 'package:labcse25/screens/widgets/form_input_widget.dart';
 import 'package:firebase_auth/firebase_auth.dart' show FirebaseAuth;
 
-
 class LoginPage extends StatelessWidget {
   void Login(email, password) async {
     final firebaseUser = await FirebaseAuth.instance
-        .signInWithEmailAndPassword(email: email, password: password);    
+        .signInWithEmailAndPassword(email: email, password: password);
   }
 
   @override
@@ -116,30 +115,39 @@ class LoginPage extends StatelessWidget {
                         SizedBox(
                           height: 15 * w,
                         ),
-                        FromInputWidget(),
+                        FromInputWidget(hint: "Email"),
                         SizedBox(
                           height: 15 * w,
                         ),
-                        FromInputWidget(),
+                        FromInputWidget(
+                          hint: "Password",
+                          obscure: true,
+                        ),
                         SizedBox(
                           height: 20 * w,
                         ),
                         Row(
                           children: [
-                            Container(
-                              height: w * 45,
-                              width: w * 120,
-                              decoration: BoxDecoration(
-                                color: Color(0xff6069E9),
-                                borderRadius: BorderRadius.circular(30 * w),
-                              ),
-                              child: Center(
-                                child: Text(
-                                  "Login",
-                                  style: TextStyle(
-                                    fontSize: 15 * w,
-                                    // fontWeight: FontWeight.bold,
-                                    color: Colors.white,
+                            GestureDetector(
+                              onTap: () {
+                                Navigator.pushNamed(
+                                    context, '/login/view_bill');
+                              },
+                              child: Container(
+                                height: w * 45,
+                                width: w * 120,
+                                decoration: BoxDecoration(
+                                  color: Color(0xff6069E9),
+                                  borderRadius: BorderRadius.circular(30 * w),
+                                ),
+                                child: Center(
+                                  child: Text(
+                                    "Login",
+                                    style: TextStyle(
+                                      fontSize: 15 * w,
+                                      // fontWeight: FontWeight.bold,
+                                      color: Colors.white,
+                                    ),
                                   ),
                                 ),
                               ),
