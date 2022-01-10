@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:labcse25/constants/size.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 
 class ViewBillPage extends StatelessWidget {
   @override
@@ -12,7 +13,7 @@ class ViewBillPage extends StatelessWidget {
             // TODO make the webpage responsive for different screen sizes
             Container(
               color: Colors.white,
-              height: double.infinity,
+              height: double.infinity, 
               width: 222 * w,
               child: Padding(
                 padding: EdgeInsets.all(w * 35),
