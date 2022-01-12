@@ -37,36 +37,36 @@ class _LoginPageState extends State<LoginPage> {
   }
 
   // Firebase Login Method
-  void login(email, password, context) async {
-    try {
-      UserCredential userCredential = await FirebaseAuth.instance
-          .signInWithEmailAndPassword(email: email, password: password);
-    } on FirebaseAuthException catch (e) {
-      if (e.code == 'user-not-found') {
-        debugPrint('No user found for that email.');
-      } else if (e.code == 'wrong-password') {
-        debugPrint('Wrong password provided for that user.');
-      }
-    }
-  }
+  // void login(email, password, context) async {
+  //   try {
+  //     UserCredential userCredential = await FirebaseAuth.instance
+  //         .signInWithEmailAndPassword(email: email, password: password);
+  //   } on FirebaseAuthException catch (e) {
+  //     if (e.code == 'user-not-found') {
+  //       debugPrint('No user found for that email.');
+  //     } else if (e.code == 'wrong-password') {
+  //       debugPrint('Wrong password provided for that user.');
+  //     }
+  //   }
+  // }
 
-  void register(email, password) async {
-    try {
-      UserCredential userCredential =
-          await FirebaseAuth.instance.createUserWithEmailAndPassword(
-        email: email,
-        password: password,
-      );
-    } on FirebaseAuthException catch (e) {
-      if (e.code == 'weak-password') {
-        debugPrint('The password provided is too weak.');
-      } else if (e.code == 'email-already-in-use') {
-        debugPrint('The account already exists for that email.');
-      }
-    } catch (e) {
-      debugPrint(e.toString());
-    }
-  }
+  // void register(email, password) async {
+  //   try {
+  //     UserCredential userCredential =
+  //         await FirebaseAuth.instance.createUserWithEmailAndPassword(
+  //       email: email,
+  //       password: password,
+  //     );
+  //   } on FirebaseAuthException catch (e) {
+  //     if (e.code == 'weak-password') {
+  //       debugPrint('The password provided is too weak.');
+  //     } else if (e.code == 'email-already-in-use') {
+  //       debugPrint('The account already exists for that email.');
+  //     }
+  //   } catch (e) {
+  //     debugPrint(e.toString());
+  //   }
+  // }
 
   // FirebaseAuth auth = FirebaseAuth.instance;
   @override

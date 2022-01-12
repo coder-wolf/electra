@@ -10,6 +10,7 @@ import 'package:provider/provider.dart';
 import 'firebase_options.dart';
 import 'screens/admin/admin_page.dart';
 import 'screens/consumer/view_bill.dart';
+import 'screens/post_signup_page/success.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -41,6 +42,7 @@ class Electra extends StatelessWidget {
           '/login/view_bill': (context) => ViewBillPage(),
           '/login/error': (context) => LoginError(),
           '/login/admin': (context) => AdminPage(),
+          'signup/success': (context) => SignUpSuccess(),
         },
         debugShowCheckedModeBanner: false,
       ),

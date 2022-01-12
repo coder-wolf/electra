@@ -36,7 +36,7 @@ class AuthService {
         email: email,
         password: password,
       );
-      return "Successfully signed up";
+      return "success";
     } on FirebaseAuthException catch (e) {
       if (e.code == 'email-already-in-use') {
         return "Email already in use";

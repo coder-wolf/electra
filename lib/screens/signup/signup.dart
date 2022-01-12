@@ -1,8 +1,19 @@
 import 'package:flutter/material.dart';
+import 'package:labcse25/auth/auth_service.dart';
 import 'package:labcse25/constants/size.dart';
 import 'package:labcse25/screens/widgets/form_input_widget.dart';
+import 'package:provider/src/provider.dart';
 
 class SignUpPage extends StatelessWidget {
+  final nameController = TextEditingController();
+  final emailController = TextEditingController();
+
+  final phoneNumberController = TextEditingController();
+  final addrController = TextEditingController();
+
+  final passController = TextEditingController();
+  final pass2Controller = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -109,46 +120,82 @@ class SignUpPage extends StatelessWidget {
                         SizedBox(
                           height: 20 * w,
                         ),
-                        FromInputWidget(hint: "Full Name",),
+                        FromInputWidget(
+                          hint: "Full Name",
+                          controller: nameController,
+                        ),
                         SizedBox(
                           height: 15 * w,
                         ),
-                        FromInputWidget(hint: "Email",),
+                        FromInputWidget(
+                          hint: "Email",
+                          controller: emailController,
+                        ),
                         SizedBox(
                           height: 15 * w,
                         ),
-                        FromInputWidget(hint: "Phone Number",),
+                        FromInputWidget(
+                          hint: "Phone Number",
+                          controller: phoneNumberController,
+                        ),
                         SizedBox(
                           height: 15 * w,
                         ),
-                        FromInputWidget(hint: "Address",),
+                        FromInputWidget(
+                          hint: "Address",
+                          controller: addrController,
+                        ),
                         SizedBox(
                           height: 15 * w,
                         ),
-                        FromInputWidget(hint: "Password", obscure: true,),
+                        FromInputWidget(
+                          hint: "Password",
+                          controller: passController,
+                          obscure: true,
+                        ),
                         SizedBox(
                           height: 15 * w,
                         ),
-                        FromInputWidget(hint: "Confirm Password", obscure: true,),
+                        FromInputWidget(
+                          hint: "Confirm Password",
+                          obscure: true,
+                          controller: pass2Controller,
+                        ),
                         SizedBox(
                           height: 20 * w,
                         ),
                         Row(
                           children: [
-                            Container(
-                              height: w * 45,
-                              width: w * 120,
-                              decoration: BoxDecoration(
-                                color: Color(0xff6069E9),
-                                borderRadius: BorderRadius.circular(30 * w),
-                              ),
-                              child: Center(
-                                child: Text(
-                                  "Apply",
-                                  style: TextStyle(
-                                    fontSize: 15 * w,
-                                    // fontWeight: FontWeight.bold,
-                                    color: Colors.white,
+                            GestureDetector(
+                              onTap: () async {
+                                String result =
+                                    await context.read<AuthService>().signUp(
+                                          email: emailController.text,
+                                          password: passController.text,
+                                        );
+                                if (result.toString() == "success") {
+                                  Navigator.pushNamed(
+                                      context, '/signup/success');
+                                } else {
+                                  Navigator.pushNamed(context, '/login/error');
+                                }
+                                debugPrint(result);
+                              },
+                              child: Container(
+                                height: w * 45,
+                                width: w * 120,
+                                decoration: BoxDecoration(
+                                  color: Color(0xff6069E9),
+                                  borderRadius: BorderRadius.circular(30 * w),
+                                ),
+                                child: Center(
+                                  child: Text(
+                                    "Apply",
+                                    style: TextStyle(
+                                      fontSize: 15 * w,
+                                      // fontWeight: FontWeight.bold,
+                                      color: Colors.white,
+                                    ),
                                   ),
                                 ),
                               ),
