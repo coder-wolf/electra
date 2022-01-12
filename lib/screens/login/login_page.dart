@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:labcse25/auth/auth_service.dart';
 import 'package:labcse25/constants/size.dart';
 import 'package:labcse25/screens/widgets/form_input_widget.dart';
 // import 'package:firebase_auth/firebase_auth.dart' show FirebaseAuth;
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:provider/src/provider.dart';
 
 class LoginPage extends StatefulWidget {
   @override
@@ -12,6 +14,20 @@ class LoginPage extends StatefulWidget {
 class _LoginPageState extends State<LoginPage> {
   final emailController = TextEditingController();
   final passController = TextEditingController();
+
+  // bool isLoggedIn;
+
+  // void initState() {
+  //   isLoggedIn = false;
+  //   FirebaseAuth.instance.currentUser().then((user) => user != null
+  //       ? setState(() {
+  //           isLoggedIn = true;
+  //         })
+  //       : null);
+  //   super.initState();
+  //   // new Future.delayed(const Duration(seconds: 2));
+  // }
+
   @override
   void dispose() {
     // Clean up the controller when the widget is disposed.
@@ -25,7 +41,6 @@ class _LoginPageState extends State<LoginPage> {
     try {
       UserCredential userCredential = await FirebaseAuth.instance
           .signInWithEmailAndPassword(email: email, password: password);
-      Navigator.pushNamed(context, '/login/view_bill');
     } on FirebaseAuthException catch (e) {
       if (e.code == 'user-not-found') {
         debugPrint('No user found for that email.');
@@ -178,11 +193,19 @@ class _LoginPageState extends State<LoginPage> {
                         Row(
                           children: [
                             GestureDetector(
-                              onTap: () {
-                                login(
-                                    emailController.text, passController.text, context);
-                                // Navigator.pushNamed(
-                                //     context, '/login/view_bill');
+                              onTap: () async {
+                                String result =
+                                    await context.read<AuthService>().signIn(
+                                          email: emailController.text,
+                                          password: passController.text,
+                                        );
+                                if (result.toString() == "success") {
+                                  Navigator.pushNamed(
+                                      context, '/login/view_bill');
+                                } else {
+                                  Navigator.pushNamed(context, '/login/error');
+                                }
+                                debugPrint(result);
                               },
                               child: Container(
                                 height: w * 45,
