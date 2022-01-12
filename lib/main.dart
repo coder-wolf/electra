@@ -7,14 +7,14 @@ import 'screens/admin/admin_page.dart';
 import 'screens/consumer/view_bill.dart';
 
 void main() {
-  runApp(LabWebsite());
+  runApp(Electra());
 }
 
-class LabWebsite extends StatelessWidget {
+class Electra extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      initialRoute: '/login/view_bill',
+      initialRoute: '/login',
       routes: {
         // When navigating to the "/" route, build the FirstScreen widget.
         '/': (context) => StartPoint(),
