@@ -1,3 +1,4 @@
-2022/01/12-12:41:23.981 e403 Reusing MANIFEST /private/var/folders/1g/m3d456bn77l22shmn3647lgc0000gn/T/flutter_tools.458flD/flutter_tools_chrome_device.aybiBd/Default/Extension Scripts/MANIFEST-000001
-2022/01/12-12:41:23.982 e403 Recovering log #3
-2022/01/12-12:41:23.982 e403 Reusing old log /private/var/folders/1g/m3d456bn77l22shmn3647lgc0000gn/T/flutter_tools.458flD/flutter_tools_chrome_device.aybiBd/Default/Extension Scripts/000003.log 
+2022/01/12-13:04:42.759 11403 Creating DB /private/var/folders/1g/m3d456bn77l22shmn3647lgc0000gn/T/flutter_tools.QkzX0z/flutter_tools_chrome_device.ifsLFy/Default/Extension Scripts since it was missing.
+2022/01/12-13:04:42.903 11403 Reusing MANIFEST /private/var/folders/1g/m3d456bn77l22shmn3647lgc0000gn/T/flutter_tools.QkzX0z/flutter_tools_chrome_device.ifsLFy/Default/Extension Scripts/MANIFEST-000001
+2022/01/12-13:04:42.903 11403 Recovering log #3
+2022/01/12-13:04:42.903 11403 Reusing old log /private/var/folders/1g/m3d456bn77l22shmn3647lgc0000gn/T/flutter_tools.QkzX0z/flutter_tools_chrome_device.ifsLFy/Default/Extension Scripts/000003.log 
