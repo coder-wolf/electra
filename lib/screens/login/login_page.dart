@@ -1,14 +1,59 @@
 import 'package:flutter/material.dart';
 import 'package:labcse25/constants/size.dart';
 import 'package:labcse25/screens/widgets/form_input_widget.dart';
-import 'package:firebase_auth/firebase_auth.dart' show FirebaseAuth;
+// import 'package:firebase_auth/firebase_auth.dart' show FirebaseAuth;
+import 'package:firebase_auth/firebase_auth.dart';
 
-class LoginPage extends StatelessWidget {
-  void Login(email, password) async {
-    final firebaseUser = await FirebaseAuth.instance
-        .signInWithEmailAndPassword(email: email, password: password);
+class LoginPage extends StatefulWidget {
+  @override
+  State<LoginPage> createState() => _LoginPageState();
+}
+
+class _LoginPageState extends State<LoginPage> {
+  final emailController = TextEditingController();
+  final passController = TextEditingController();
+  @override
+  void dispose() {
+    // Clean up the controller when the widget is disposed.
+    emailController.dispose();
+    passController.dispose();
+    super.dispose();
   }
 
+  // Firebase Login Method
+  void login(email, password, context) async {
+    try {
+      UserCredential userCredential = await FirebaseAuth.instance
+          .signInWithEmailAndPassword(email: email, password: password);
+      Navigator.pushNamed(context, '/login/view_bill');
+    } on FirebaseAuthException catch (e) {
+      if (e.code == 'user-not-found') {
+        debugPrint('No user found for that email.');
+      } else if (e.code == 'wrong-password') {
+        debugPrint('Wrong password provided for that user.');
+      }
+    }
+  }
+
+  void register(email, password) async {
+    try {
+      UserCredential userCredential =
+          await FirebaseAuth.instance.createUserWithEmailAndPassword(
+        email: email,
+        password: password,
+      );
+    } on FirebaseAuthException catch (e) {
+      if (e.code == 'weak-password') {
+        debugPrint('The password provided is too weak.');
+      } else if (e.code == 'email-already-in-use') {
+        debugPrint('The account already exists for that email.');
+      }
+    } catch (e) {
+      debugPrint(e.toString());
+    }
+  }
+
+  // FirebaseAuth auth = FirebaseAuth.instance;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -115,13 +160,17 @@ class LoginPage extends StatelessWidget {
                         SizedBox(
                           height: 15 * w,
                         ),
-                        FromInputWidget(hint: "Email"),
+                        FromInputWidget(
+                          hint: "Email",
+                          controller: emailController,
+                        ),
                         SizedBox(
                           height: 15 * w,
                         ),
                         FromInputWidget(
                           hint: "Password",
                           obscure: true,
+                          controller: passController,
                         ),
                         SizedBox(
                           height: 20 * w,
@@ -130,8 +179,10 @@ class LoginPage extends StatelessWidget {
                           children: [
                             GestureDetector(
                               onTap: () {
-                                Navigator.pushNamed(
-                                    context, '/login/view_bill');
+                                login(
+                                    emailController.text, passController.text, context);
+                                // Navigator.pushNamed(
+                                //     context, '/login/view_bill');
                               },
                               child: Container(
                                 height: w * 45,

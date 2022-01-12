@@ -4,11 +4,14 @@ import 'package:labcse25/constants/size.dart';
 class FromInputWidget extends StatelessWidget {
   var hint;
   var obscure;
+  var controller;
+
   // TODO : Add TextInputType
   // write constructor
   FromInputWidget({
     this.hint,
     this.obscure = false,
+    this.controller,
   });
 
   @override
@@ -34,6 +37,7 @@ class FromInputWidget extends StatelessWidget {
         padding: EdgeInsets.only(left: 12 * w, right: 12 * w),
         child: TextField(
           obscureText: obscure,
+          controller: controller,
           decoration: InputDecoration(
             border: InputBorder.none,
             // labelText: 'Email',

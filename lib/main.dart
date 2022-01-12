@@ -16,16 +16,13 @@ class Electra extends StatelessWidget {
     return MaterialApp(
       initialRoute: '/login',
       routes: {
-        // When navigating to the "/" route, build the FirstScreen widget.
         '/': (context) => StartPoint(),
-        // When navigating to the "/second" route, build the SecondScreen widget.
         '/login': (context) => LoginPage(),
         '/signup': (context) => SignUpPage(),
         '/login/view_bill': (context) => ViewBillPage(),
         '/login/admin': (context) => AdminPage(),
       },
       debugShowCheckedModeBanner: false,
-      // home: StartPoint(),
     );
   }
 }
