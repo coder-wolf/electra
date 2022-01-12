@@ -18,7 +18,7 @@ class ViewBillPage extends StatelessWidget {
               child: Padding(
                 padding: EdgeInsets.all(w * 35),
                 child: SingleChildScrollView(
-                  child: SideBarItems(),
+                  child: LeftSideBar(),
                 ),
               ),
             ),
@@ -201,9 +201,9 @@ class ViewBillPage extends StatelessWidget {
     );
   }
 }
-
-class SideBarItems extends StatelessWidget {
-  const SideBarItems({
+// DOC this is the left side thingy of the page
+class LeftSideBar extends StatelessWidget {
+  const LeftSideBar({
     Key? key,
   }) : super(key: key);
 
@@ -291,6 +291,7 @@ class SideBarItem extends StatelessWidget {
   }
 }
 
+// DOC this is the larger widget on right top portion
 class LargerWidget extends StatelessWidget {
   const LargerWidget({
     Key? key,
@@ -387,8 +388,8 @@ class LargerWidget extends StatelessWidget {
     );
   }
 }
-
-class SmallerWidgets extends StatelessWidget {
+// DOC other smaller widgets on top right portion
+ class SmallerWidgets extends StatelessWidget {
   SmallerWidgets({
     Key? key,
     this.bill,
@@ -695,7 +696,7 @@ class BillWidget extends StatelessWidget {
             ),
             Flexible(
               flex: 1,
-              child: PaidSign(),
+              child: PaidSignThing(),
             ),
           ],
         ),
@@ -704,7 +705,7 @@ class BillWidget extends StatelessWidget {
   }
 }
 
-class PaidSign extends StatelessWidget {
+class PaidSignThing extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -719,6 +720,8 @@ class PaidSign extends StatelessWidget {
   }
 }
 
+// TODO add gesturedetector on this button, and add functionality. For now just show that payment successful.
+// Later we'll add new function for actual payment procedure
 class PayNowButton extends StatelessWidget {
   const PayNowButton({
     Key? key,

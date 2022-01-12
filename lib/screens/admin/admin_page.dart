@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:labcse25/constants/size.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 
-class ViewBillPage extends StatelessWidget {
+class AdminPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -22,6 +22,7 @@ class ViewBillPage extends StatelessWidget {
                 ),
               ),
             ),
+            // ======== MAIN ITEMS, right side of screen ========
             Expanded(
               child: SingleChildScrollView(
                 scrollDirection: Axis.horizontal,
@@ -33,107 +34,107 @@ class ViewBillPage extends StatelessWidget {
                       // height: double.infinity,
                       width: w * 778,
                       child: Column(
-                        children: [
-                          Container(
-                            // color: Colors.red,
-                            height: 200 * w,
-                            child: Padding(
-                              padding: EdgeInsets.only(
-                                top: 25 * w,
-                              ),
-                              child: Column(
-                                children: [
-                                  SearchBarAndStuff(),
-                                  Padding(
-                                    padding: EdgeInsets.only(
-                                      top: 24 * w,
-                                    ),
-                                    child: Container(
-                                      child: SingleChildScrollView(
-                                        scrollDirection: Axis.horizontal,
-                                        child: Row(
-                                          children: [
-                                            SizedBox(
-                                              width: 22 * w,
-                                            ),
-                                            LargerWidget(),
-                                            SizedBox(
-                                              width: 19 * w,
-                                            ),
-                                            // DOC : Water and Gas info here
-                                            Column(
-                                              children: [
-                                                SmallerWidgets(),
-                                                SizedBox(
-                                                  height: 15 * w,
-                                                ),
-                                                SmallerWidgets(
-                                                  icon: "🔥",
-                                                  category: "Gas:",
-                                                ),
-                                              ],
-                                            ),
-                                            SizedBox(
-                                              width: 19 * w,
-                                            ),
-                                            // DOC: Home and water info here
-                                            Column(
-                                              children: [
-                                                SmallerWidgets(
-                                                  icon: "🏠",
-                                                  category: "Home:",
-                                                ),
-                                                SizedBox(
-                                                  height: 15 * w,
-                                                ),
-                                                SmallerWidgets(
-                                                  icon: "🗑",
-                                                  category: "Cleaning:",
-                                                ),
-                                              ],
-                                            ),
-                                            SizedBox(
-                                              width: 18 * w,
-                                            ),
-                                            Container(
-                                              height: 102 * w,
-                                              width: 102 * w,
-                                              decoration: BoxDecoration(
-                                                color: Colors.white,
-                                                borderRadius:
-                                                    BorderRadius.circular(
-                                                        14 * w),
-                                                boxShadow: [
-                                                  BoxShadow(
-                                                    color: Colors.grey
-                                                        .withOpacity(0.1),
-                                                    spreadRadius: 5 * w,
-                                                    blurRadius: 5 * w,
-                                                  ),
-                                                ],
-                                              ),
-                                              child: Center(
-                                                  child: Padding(
-                                                padding: EdgeInsets.all(w * 6),
-                                                child: Image(
-                                                  image: AssetImage(
-                                                      "images/qr.png"),
-                                                ),
-                                              )),
-                                            ),
-                                            SizedBox(
-                                              width: 22 * w,
-                                            ),
-                                          ],
-                                        ),
-                                      ),
-                                    ),
-                                  ),
-                                  // Spacer(),
-                                ],
-                              ),
-                            ),
-                          ),
+                        children: [ 
+                          // Container(
+                          //   // color: Colors.red,
+                          //   height: 200 * w,
+                          //   child: Padding(
+                          //     padding: EdgeInsets.only(
+                          //       top: 25 * w,
+                          //     ),
+                          //     child: Column(
+                          //       children: [
+                          //         SearchBarAndStuff(),
+                          //         Padding(
+                          //           padding: EdgeInsets.only(
+                          //             top: 24 * w,
+                          //           ),
+                          //           child: Container(
+                          //             child: SingleChildScrollView(
+                          //               scrollDirection: Axis.horizontal,
+                          //               child: Row(
+                          //                 children: [
+                          //                   SizedBox(
+                          //                     width: 22 * w,
+                          //                   ),
+                          //                   LargerWidget(),
+                          //                   SizedBox(
+                          //                     width: 19 * w,
+                          //                   ),
+                          //                   // DOC : Water and Gas info here
+                          //                   Column(
+                          //                     children: [
+                          //                       SmallerWidgets(),
+                          //                       SizedBox(
+                          //                         height: 15 * w,
+                          //                       ),
+                          //                       SmallerWidgets(
+                          //                         icon: "🔥",
+                          //                         category: "Gas:",
+                          //                       ),
+                          //                     ],
+                          //                   ),
+                          //                   SizedBox(
+                          //                     width: 19 * w,
+                          //                   ),
+                          //                   // DOC: Home and water info here
+                          //                   Column(
+                          //                     children: [
+                          //                       SmallerWidgets(
+                          //                         icon: "🏠",
+                          //                         category: "Home:",
+                          //                       ),
+                          //                       SizedBox(
+                          //                         height: 15 * w,
+                          //                       ),
+                          //                       SmallerWidgets(
+                          //                         icon: "🗑",
+                          //                         category: "Cleaning:",
+                          //                       ),
+                          //                     ],
+                          //                   ),
+                          //                   SizedBox(
+                          //                     width: 18 * w,
+                          //                   ),
+                          //                   Container(
+                          //                     height: 102 * w,
+                          //                     width: 102 * w,
+                          //                     decoration: BoxDecoration(
+                          //                       color: Colors.white,
+                          //                       borderRadius:
+                          //                           BorderRadius.circular(
+                          //                               14 * w),
+                          //                       boxShadow: [
+                          //                         BoxShadow(
+                          //                           color: Colors.grey
+                          //                               .withOpacity(0.1),
+                          //                           spreadRadius: 5 * w,
+                          //                           blurRadius: 5 * w,
+                          //                         ),
+                          //                       ],
+                          //                     ),
+                          //                     child: Center(
+                          //                         child: Padding(
+                          //                       padding: EdgeInsets.all(w * 6),
+                          //                       child: Image(
+                          //                         image: AssetImage(
+                          //                             "images/qr.png"),
+                          //                       ),
+                          //                     )),
+                          //                   ),
+                          //                   SizedBox(
+                          //                     width: 22 * w,
+                          //                   ),
+                          //                 ],
+                          //               ),
+                          //             ),
+                          //           ),
+                          //         ),
+                          //         // Spacer(),
+                          //       ],
+                          //     ),
+                          //   ),
+                          // ),
                           Expanded(
                             child: Container(
                               child: Padding(
@@ -220,7 +221,7 @@ class SideBarItems extends StatelessWidget {
           ),
         ),
         Text(
-          "Pay your bills online now",
+          "Admin Panel",
           style: TextStyle(
             color: Colors.grey[600],
           ),
@@ -695,56 +696,14 @@ class BillWidget extends StatelessWidget {
             ),
             Flexible(
               flex: 1,
-              child: PaidSign(),
+              child: Text(
+                "Complete", // 7 char
+                style: TextStyle(
+                  fontSize: 14 * w,
+                ),
+              ),
             ),
           ],
-        ),
-      ),
-    );
-  }
-}
-
-class PaidSign extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      child: Text(
-        "      Paid      ",
-        style: TextStyle(
-          fontWeight: FontWeight.bold,
-          color: Colors.green,
-        ),
-      ),
-    );
-  }
-}
-
-class PayNowButton extends StatelessWidget {
-  const PayNowButton({
-    Key? key,
-  }) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      decoration: BoxDecoration(
-        color: Colors.blueAccent,
-        borderRadius: BorderRadius.circular(9 * w),
-      ),
-      child: Padding(
-        padding: EdgeInsets.only(
-          left: 7 * w,
-          right: 7 * w,
-          top: 5 * w,
-          bottom: 5 * w,
-        ),
-        child: Text(
-          "Pay now", // 7 char
-          style: TextStyle(
-            fontSize: 12 * w,
-            fontWeight: FontWeight.w500,
-            color: Colors.white,
-          ),
         ),
       ),
     );

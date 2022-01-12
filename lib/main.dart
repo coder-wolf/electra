@@ -3,6 +3,7 @@ import 'package:labcse25/constants/size.dart';
 import 'package:labcse25/screens/login/login_page.dart';
 import 'package:labcse25/screens/signup/signup.dart';
 
+import 'screens/admin/admin_page.dart';
 import 'screens/consumer/view_bill.dart';
 
 void main() {
@@ -21,6 +22,7 @@ class LabWebsite extends StatelessWidget {
         '/login': (context) => LoginPage(),
         '/signup': (context) => SignUpPage(),
         '/login/view_bill': (context) => ViewBillPage(),
+        '/login/admin': (context) => AdminPage(),
       },
       debugShowCheckedModeBanner: false,
       // home: StartPoint(),

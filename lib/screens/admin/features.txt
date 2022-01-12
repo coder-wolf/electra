@@ -1,0 +1,27 @@
+[x] Login
+[x] Signup
+
+## Admin 
+[] add/update/delete meter
+[] add/update/delete users
+[] view/reply to complaints
+
+
+## Manager
+[] view users' list
+[] view individual users' bill list
+[] view individual users' list
+[] view transactions
+[] monthly transaction
+
+
+## Biller
+[] bill page
+i. input id
+ii.  units, this month
+** view bill(of all users) page
+
+
+## User
+[x] view / pay bills
+[] view/place complaint
